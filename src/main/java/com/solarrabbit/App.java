@@ -8,10 +8,6 @@ import com.solarrabbit.counter.HourCostCounter;
 import com.solarrabbit.counter.HourIntervalCostCounter;
 import com.solarrabbit.counter.IntervalCostCounter;
 
-/**
- * Hello world!
- *
- */
 public class App implements IntervalCostCounter {
     private final GeneralCostCounter counter;
     private final HourIntervalCostCounter discounter;
@@ -19,7 +15,7 @@ public class App implements IntervalCostCounter {
     public App(HourCostCounter weekDayCounter, HourCostCounter weekEndCounter, int discountInterval) {
         DayCostCounter dayCostCounter = new DayCostCounter(weekDayCounter, weekEndCounter);
         this.counter = new GeneralCostCounter(dayCostCounter);
-        this.discounter = new HourIntervalCostCounter(counter, 8);
+        this.discounter = new HourIntervalCostCounter(counter, discountInterval);
     }
 
     @Override

@@ -7,6 +7,13 @@ public class DayCostCounter implements UnitCostCounter {
     private final HourCostCounter weekDayCounter;
     private final HourCostCounter weekEndCounter;
 
+    /**
+     * Constructs a day cost counting system with the given two
+     * {@link HourCostCounter} - one for weekdays and one for weekends.
+     *
+     * @param weekDayCounter counter used for weekdays
+     * @param weekEndCounter counter used for weekends
+     */
     public DayCostCounter(HourCostCounter weekDayCounter, HourCostCounter weekEndCounter) {
         this.weekDayCounter = weekDayCounter;
         this.weekEndCounter = weekEndCounter;
