@@ -10,6 +10,13 @@ import java.time.LocalDateTime;
  */
 public interface IntervalCostCounter {
 
+    /**
+     * Returns the cost between two arbitrary points in time.
+     *
+     * @param start of the interval
+     * @param end   of the interval
+     * @return total cost for the interval
+     */
     double getCostBetween(LocalDateTime start, LocalDateTime end);
 
 }

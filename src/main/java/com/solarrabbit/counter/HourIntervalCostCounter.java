@@ -4,11 +4,26 @@ import java.time.LocalDateTime;
 
 import com.solarrabbit.util.ObjectUtils;
 
+/**
+ * Encapsulates an interval cost counter that only counts the cost of paid hours
+ * in intervals.
+ */
 public class HourIntervalCostCounter implements IntervalCostCounter {
-    private final GeneralCostCounter counter;
+    private final IntervalCostCounter counter;
     private final int interval;
 
-    public HourIntervalCostCounter(GeneralCostCounter counter, int interval) {
+    /**
+     * Constructs an interval counter with an underlying interval cost counter and
+     * an interval. If {@code interval == 0}, the counter's
+     * {@link #getCostBetween(LocalDateTime, LocalDateTime)} method will give the
+     * same output as the underlying interval cost counter.
+     *
+     * @param counter  underlying interval cost used to calculate the cost of a paid
+     *                 hour
+     * @param interval between the end of the previous paid hour and the beginning
+     *                 of the next paid hour
+     */
+    public HourIntervalCostCounter(IntervalCostCounter counter, int interval) {
         this.counter = counter;
         this.interval = interval;
     }
