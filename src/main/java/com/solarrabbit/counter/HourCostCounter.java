@@ -2,7 +2,7 @@ package com.solarrabbit.counter;
 
 import java.time.LocalDateTime;
 
-import com.solarrabbit.Rate;
+import com.solarrabbit.file.Rate;
 
 public class HourCostCounter implements UnitCostCounter {
     private final int startHour;

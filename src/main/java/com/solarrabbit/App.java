@@ -9,6 +9,7 @@ import com.solarrabbit.counter.GeneralCostCounter;
 import com.solarrabbit.counter.HourCostCounter;
 import com.solarrabbit.counter.HourIntervalCostCounter;
 import com.solarrabbit.counter.IntervalCostCounter;
+import com.solarrabbit.file.Rate;
 
 public class App implements IntervalCostCounter {
     private final GeneralCostCounter counter;

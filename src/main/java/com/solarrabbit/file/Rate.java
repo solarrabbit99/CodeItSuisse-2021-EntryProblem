@@ -1,4 +1,4 @@
-package com.solarrabbit;
+package com.solarrabbit.file;
 
 import java.time.LocalTime;
 
@@ -6,9 +6,7 @@ import org.json.simple.JSONObject;
 
 public class Rate {
     private final LocalTime start;
-
     private final LocalTime end;
-
     private final int value;
 
     private Rate(LocalTime start, LocalTime end, int value) {
@@ -36,4 +34,5 @@ public class Rate {
     public int getEndHour() {
         return end.getHour();
     }
+
 }

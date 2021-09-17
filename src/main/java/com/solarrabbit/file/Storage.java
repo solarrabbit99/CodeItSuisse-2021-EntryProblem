@@ -1,4 +1,4 @@
-package com.solarrabbit.util;
+package com.solarrabbit.file;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -11,9 +11,7 @@ import org.json.simple.parser.ParseException;
 
 public class Storage {
     private static FileWriter fileWriter;
-
     private final String inputFilePath;
-
     private final String outputFilePath;
 
     public Storage(String inputFilePath, String outputFilePath) {
@@ -53,4 +51,5 @@ public class Storage {
             }
         }
     }
+
 }
