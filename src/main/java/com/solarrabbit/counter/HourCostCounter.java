@@ -2,6 +2,8 @@ package com.solarrabbit.counter;
 
 import java.time.LocalDateTime;
 
+import com.solarrabbit.file.Rate;
+
 public class HourCostCounter implements UnitCostCounter {
     private final int startHour;
     private final int endHour;
@@ -29,6 +31,14 @@ public class HourCostCounter implements UnitCostCounter {
         this.endHour = endHour;
         this.dayRate = dayRate;
         this.nightRate = nightRate;
+    }
+
+    public static HourCostCounter of(Rate day, Rate night) {
+        int startHour = day.getStartHour();
+        int endHour = day.getEndHour();
+        int dayRate = day.getValue();
+        int nightRate = night.getValue();
+        return new HourCostCounter(startHour, endHour, dayRate, nightRate);
     }
 
     @Override
