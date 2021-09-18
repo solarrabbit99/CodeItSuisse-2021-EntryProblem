@@ -18,12 +18,25 @@ public class App implements IntervalCostCounter {
     private static LocalDateTime start;
     private static LocalDateTime end;
 
+    /**
+     * App constructor.
+     *
+     * @param weekDayCounter
+     * @param weekEndCounter
+     * @param discountInterval
+     */
     public App(HourCostCounter weekDayCounter, HourCostCounter weekEndCounter, int discountInterval) {
         DayCostCounter dayCostCounter = new DayCostCounter(weekDayCounter, weekEndCounter);
         this.counter = new GeneralCostCounter(dayCostCounter);
         this.discounter = new HourIntervalCostCounter(counter, discountInterval);
     }
 
+    /**
+     * App factory method.
+     *
+     * @param input A Json object representing the input.
+     * @return The App object.
+     */
     public static App of(JSONObject input) {
         JSONObject shiftJson = (JSONObject) input.get("shift");
         start = LocalDateTime.parse((String) shiftJson.get("start"));
@@ -45,11 +58,21 @@ public class App implements IntervalCostCounter {
         return new App(weekDayCounter, weekEndCounter, 8);
     }
 
+    /**
+     * Calculates the cost between two intervals.
+     *
+     * @param start of the interval
+     * @param end   of the interval
+     * @return The cost between the two intervals.
+     */
     @Override
     public double getCostBetween(LocalDateTime start, LocalDateTime end) {
         return this.counter.getCostBetween(start, end) - this.discounter.getCostBetween(start, end);
     }
 
+    /**
+     * Returns the result of the calculation.
+     */
     public double run() {
         return getCostBetween(start, end);
     }
