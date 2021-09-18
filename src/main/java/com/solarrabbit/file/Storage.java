@@ -9,16 +9,28 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+/**
+ * Utility class to write to and from disk.
+ */
 public class Storage {
     private static FileWriter fileWriter;
     private final String inputFilePath;
     private final String outputFilePath;
 
+    /**
+     * Storage constructor.
+     *
+     * @param inputFilePath The file path to read from.
+     * @param outputFilePath The file path to write to.
+     */
     public Storage(String inputFilePath, String outputFilePath) {
         this.inputFilePath = inputFilePath;
         this.outputFilePath = outputFilePath;
     }
 
+    /**
+     * Returns the Json object read from the file.
+     */
     public JSONObject load() {
         JSONParser jsonParser = new JSONParser();
         JSONObject parsedInput = null;
@@ -31,6 +43,9 @@ public class Storage {
         return parsedInput;
     }
 
+    /**
+     * Writes the result of the calculation into a Json file.
+     */
     public void write(long result) {
         HashMap<String, Long> jsonMap = new HashMap<>();
         jsonMap.put("value", result);
