@@ -13,11 +13,12 @@ public class Rate {
     private final int value;
 
     /**
-     * Rate constructor.
+     * Constructs a rate with the time frame of which the rate applies and the value
+     * of the rate.
      *
-     * @param start The start time of the rate counting.
-     * @param end The end time of the rate counting.
-     * @param value Pay per minute.
+     * @param start start time of the rate counting.
+     * @param end   end time of the rate counting.
+     * @param value pay per minute.
      */
     private Rate(LocalTime start, LocalTime end, int value) {
         this.start = start;

@@ -4,7 +4,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
-
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -18,10 +17,10 @@ public class Storage {
     private final String outputFilePath;
 
     /**
-     * Storage constructor.
+     * Constructs a storage class for json file io.
      *
-     * @param inputFilePath The file path to read from.
-     * @param outputFilePath The file path to write to.
+     * @param inputFilePath  file path to read from.
+     * @param outputFilePath file path to write to.
      */
     public Storage(String inputFilePath, String outputFilePath) {
         this.inputFilePath = inputFilePath;
